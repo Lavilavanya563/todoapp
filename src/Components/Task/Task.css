@@ -129,3 +129,9 @@
 .submit-btn:hover {
   background-color: #c026d3;
 }
+
+@media (max-width: 768px) {
+   .task{
+    width: 90vw;
+   }
+}
