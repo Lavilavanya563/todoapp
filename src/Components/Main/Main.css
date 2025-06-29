@@ -3,9 +3,11 @@
 .main{
    min-height: 100vh;
    width: 100%;
-   position: relative;
+   
    background-color: rgb(237,238,246);
     font-family: "Poppins", sans-serif;
+    display: flex;
+    flex-direction: column;
 }
 
 .nav-left h1{
@@ -17,10 +19,13 @@
     animation: slideInOut 3s ease-in-out infinite;
 }
 .main-center{
- position: absolute ;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:space-around;
+  margin-top: 50px;
+ /* position: absolute ; */
+  /* transform: translate(-50%,-50%); */
     font-size: 18px;
 }
 .main-center span{
