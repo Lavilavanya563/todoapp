@@ -9,30 +9,27 @@ app.use(express.json());
 
 let tasks = [];
 
-// ✅ Create new task
 app.post('/api/tasks', (req, res) => {
   const { title, description, dueDate } = req.body;
 
   const newTask = {
-    id: Date.now().toString(),      // ✅ generate unique ID
+    id: Date.now().toString(),      
     title,
     description,
     dueDate,
-    status: 'pending'              // ✅ default status
+    status: 'pending'            
   };
 
   tasks.push(newTask);
-  console.log("✅ New Task Created:", newTask);
-  res.status(201).json(newTask);   // ✅ return created task
+ 
+  res.status(201).json(newTask);   
 });
 
-// ✅ Get all tasks
+
 app.get('/api/tasks', (req, res) => {
-  console.log("📦 Sending tasks:", tasks);
   res.json(tasks);
 });
 
-// ✅ Update task status
 app.put('/api/tasks/:id', (req, res) => {
   const { id } = req.params;
   const { status } = req.body;
@@ -46,7 +43,6 @@ app.put('/api/tasks/:id', (req, res) => {
   }
 });
 
-// ✅ Delete task
 app.delete('/api/tasks/:id', (req, res) => {
   const { id } = req.params;
   const index = tasks.findIndex(t => t.id === id);
@@ -59,5 +55,5 @@ app.delete('/api/tasks/:id', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`🚀 Backend running at http://localhost:${PORT}`);
+  console.log(`Backend running at http://localhost:${PORT}`);
 });
