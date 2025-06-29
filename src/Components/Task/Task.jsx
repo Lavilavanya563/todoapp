@@ -88,6 +88,7 @@ const Task = () => {
           <input
             type="date"
             name='dueDate'
+            placeholder='date'
             className="input date"
             value={formData.dueDate}
             onChange={handleChange}
