@@ -134,4 +134,14 @@
    .task{
     width: 90vw;
    }
+   
+.input {
+   width: 200px;
+ padding: 9px 10px;
+  border-radius: 12px;
+  border: 1px solid black;
+  font-size: 14px;
+  outline: none;
+  background-color:transparent;
+}
 }
