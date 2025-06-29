@@ -21,20 +21,17 @@ const Task = () => {
     }));
   };
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.post("http://localhost:5000/api/tasks", formData);
+      navigate("/");
+    } catch (err) {
+      alert("Error creating task");
+      console.error(err);
+    }
+  };
 
-  if (!formData.title.trim()) return alert("Task title required");
-
-  try {
-    const response = await axios.post("http://localhost:5000/api/tasks", formData);
-    console.log("Saved task:", response.data); // Check if ID is present
-    navigate("/");
-  } catch (err) {
-    alert("Error creating task");
-    console.error(err);
-  }
-};
   return (
     <div className="task">
       <div className="nav">

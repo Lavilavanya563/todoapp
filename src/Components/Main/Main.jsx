@@ -7,7 +7,8 @@ import { FiMoreVertical } from "react-icons/fi";
 
 const Main = () => {
   const [tasks, setTasks] = useState([]);
-  const [openMenu, setOpenMenu] = useState(null); 
+  const [openMenu, setOpenMenu] = useState(null);
+
   const fetchTasks = async () => {
     try {
       const res = await axios.get("http://localhost:5000/api/tasks");
@@ -18,15 +19,9 @@ const Main = () => {
     }
   };
 
-  // Toggle menu for a specific task
-  const toggleMenu = (taskId) => {
-    setOpenMenu(prev => (prev === taskId ? null : taskId));
-  };
-
-  // Delete a task
   const deleteTask = async (id) => {
-    if (!id) return alert("Task ID missing!");
     console.log("Deleting task with id:", id);
+    if (!id) return alert("Task ID missing!");
     try {
       await axios.delete(`http://localhost:5000/api/tasks/${id}`);
       setOpenMenu(null);
@@ -37,10 +32,9 @@ const Main = () => {
     }
   };
 
-  // Mark a task as done
   const markAsDone = async (id) => {
-    if (!id) return alert("Task ID missing!");
     console.log("Marking as done ID:", id);
+    if (!id) return alert("Task ID missing!");
     try {
       await axios.put(`http://localhost:5000/api/tasks/${id}`, { status: "done" });
       setOpenMenu(null);
@@ -66,14 +60,14 @@ const Main = () => {
           </>
         ) : (
           <ul className="task-list">
-            {tasks.map((task, i) => (
-              <li key={task.id || `${task.title}-${i}`} className="tacard">
+            {tasks.map((task) => (
+              <li key={task.id} className="tacard">
                 <div className="tacard-header">
                   <h3>{task.title}</h3>
                   <div className="task-options">
                     <FiMoreVertical
                       className="options-icon"
-                      onClick={() => toggleMenu(task.id)}
+                      onClick={() => setOpenMenu(openMenu === task.id ? null : task.id)}
                     />
                     {openMenu === task.id && (
                       <div className="dropdown-menu">
@@ -103,7 +97,6 @@ const Main = () => {
           </ul>
         )}
       </div>
-
       <div className="listbtn">
         <Link to="/addtask">
           <button className="list-btn">+</button>
