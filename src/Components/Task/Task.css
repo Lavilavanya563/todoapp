@@ -132,7 +132,7 @@
 
 @media (max-width: 768px) {
    .task{
-    width: 90vw;
+    width: 100vw;
    }
    
 .input {
@@ -143,5 +143,10 @@
   font-size: 14px;
   outline: none;
   background-color:transparent;
+}
+.heading{
+  h1{
+    font-size: 12px;
+  }
 }
 }
