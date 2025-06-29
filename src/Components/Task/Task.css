@@ -132,7 +132,7 @@
 
 @media (max-width: 768px) {
    .task{
-    width: 100vw;
+    width: 100%;
    }
    
 .input {
