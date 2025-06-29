@@ -47,9 +47,9 @@
 @media (max-width: 768px) {
     .in{
          width: 90vw;
-    flex-direction: column;
+    
     align-items: flex-start;
-    font-size: 16px;
+    font-size: 13px;
     }
     
 }
